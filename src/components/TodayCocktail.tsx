@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 export default function TodayCocktail() {
+  const navigate = useNavigate();
+
   return (
-    <article className="mb-[18px] flex gap-[14px] cursor-pointer">
+    <article
+      className="mb-[18px] flex gap-[14px] cursor-pointer"
+      onClick={() => navigate("/cocktail?id=1")}
+    >
       {/* 썸네일 이미지 */}
       <div className="h-[92px] w-[92px] flex-none rounded bg-[#d9d9d9] transition-shadow hover:shadow-md" />
       <div className="min-w-0 flex-1">
