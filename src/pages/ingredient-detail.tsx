@@ -63,9 +63,9 @@ export default function IngredientDetailPage() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/member/${memberId}/ingredients/${
-          details.id
-        }`,
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/member/${memberId}/ingredients/${ingredientName}`,
         {
           method: "POST",
         }
@@ -122,6 +122,7 @@ export default function IngredientDetailPage() {
               key={cocktail.id}
               title={cocktail.name}
               id={cocktail.id}
+              thumbnail={cocktail.thumbnail}
             />
           ))}
         </div>

@@ -85,7 +85,12 @@ export default function MyPage() {
       {type === "cocktail" && (
         <SectionGrid title="즐겨찾는 칵테일">
           {userData?.favoriteCocktails.map((item) => (
-            <ResultCard key={item.id} title={item.name} id={item.id} />
+            <ResultCard
+              key={item.id}
+              title={item.name}
+              id={item.id}
+              thumbnail={item.thumbnail}
+            />
           ))}
         </SectionGrid>
       )}
@@ -93,7 +98,12 @@ export default function MyPage() {
       {type === "ingredient" && (
         <SectionGrid title="나의 재료">
           {userData?.favoriteMaterials.map((item) => (
-            <ResultCard key={item.id} title={item.name} id={item.id} />
+            <ResultCard
+              key={item.id}
+              title={item.name}
+              id={item.id}
+              thumbnail={item.thumbnail}
+            />
           ))}
         </SectionGrid>
       )}
