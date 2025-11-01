@@ -37,6 +37,19 @@ export async function requireQueryId({
   return { id };
 }
 
+export type NameLoaderData = { name: string };
+
+export async function requireQueryName({
+  request,
+}: LoaderFunctionArgs): Promise<NameLoaderData> {
+  const url = new URL(request.url);
+  const name = url.searchParams.get("name");
+  if (!name) {
+    throw redirect("/?error=missing_name");
+  }
+  return { name };
+}
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -57,7 +70,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "ingredient",
-        loader: requireQueryId,
+        loader: requireQueryName,
         element: withSuspense(<Ingredient />),
       },
       {
