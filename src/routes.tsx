@@ -15,6 +15,7 @@ const Cocktail = lazy(() => import("./pages/cocktail-detail"));
 const Ingredient = lazy(() => import("./pages/ingredients-results"));
 const MyHome = lazy(() => import("./pages/mypage"));
 const Contribute = lazy(() => import("./pages/contribute"));
+const Login = lazy(() => import("./pages/Login"));
 
 function withSuspense<T extends ReactElement>(el: T): ReactElement {
   return (
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
           { index: true, element: withSuspense(<MyHome />) },
           { path: "contribute", element: withSuspense(<Contribute />) },
         ],
+      },
+      {
+        path: "login",
+        element: withSuspense(<Login />),
       },
     ],
   },
