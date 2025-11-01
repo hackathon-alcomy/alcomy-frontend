@@ -29,10 +29,10 @@ export default function IngredientDetailPage() {
       <section className="mt-9 w-full px-8">
         <h2 className="mb-3 text-xl font-semibold">만들 수 있어요!</h2>
         <div className="flex gap-4 overflow-x-auto pb-4">
-          <ResultCard title="칵테일 명" />
-          <ResultCard title="칵테일 명" />
-          <ResultCard title="칵테일 명" />
-          <ResultCard title="칵테일 명" />
+          <ResultCard title="칵테일 명" id={1} />
+          <ResultCard title="칵테일 명" id={1} />
+          <ResultCard title="칵테일 명" id={1} />
+          <ResultCard title="칵테일 명" id={1} />
         </div>
       </section>
     </div>
