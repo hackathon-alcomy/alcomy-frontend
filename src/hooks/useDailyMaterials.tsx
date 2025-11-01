@@ -3,26 +3,22 @@ import { useEffect, useState } from "react";
 export interface Material {
   name: string;
   description: string;
-  // thumbnail?: string; // 백엔드에서 주면 사용
-}
-
-export interface DailyMaterialsRes {
-  Material: Material;
+  thumbnail?: string; // 백엔드에서 주면 사용
 }
 
 const BASE = import.meta.env.VITE_API_BASE_URL ?? "";
 
 export async function getDailyMaterials(
   signal?: AbortSignal
-): Promise<DailyMaterialsRes> {
+): Promise<Material> {
   const res = await fetch(`${BASE}/daily/ingredient`, { signal });
   if (!res.ok)
     throw new Error(`Failed to fetch /daily/Materials (${res.status})`);
-  return res.json() as Promise<DailyMaterialsRes>;
+  return res.json() as Promise<Material>;
 }
 
 export function useDailyMaterials() {
-  const [data, setData] = useState<DailyMaterialsRes | null>(null);
+  const [data, setData] = useState<Material | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<unknown>(null);
 

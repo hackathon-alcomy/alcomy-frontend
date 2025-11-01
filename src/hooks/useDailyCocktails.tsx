@@ -5,7 +5,7 @@ export interface Cocktail {
   name: string;
   content: number; // 도수
   description: string;
-  // thumbnail?: string; // 백엔드에서 주면 사용
+  thumbnail?: string; // 백엔드에서 주면 사용
 }
 
 export interface DailyCocktailsRes {
