@@ -12,7 +12,8 @@ import ErrorPage from "./pages/ErrorPage";
 const Home = lazy(() => import("./pages/Home"));
 // const Search = lazy(() => import("./pages/Search"));
 const Cocktail = lazy(() => import("./pages/cocktail-detail"));
-const Ingredient = lazy(() => import("./pages/ingredients-results"));
+const Ingredient = lazy(() => import("./pages/ingredient-detail"));
+const Result = lazy(() => import("./pages/ingredients-results"));
 const MyHome = lazy(() => import("./pages/mypage"));
 const Contribute = lazy(() => import("./pages/contribute"));
 const Login = lazy(() => import("./pages/Login"));
@@ -48,6 +49,11 @@ export const router = createBrowserRouter([
         path: "cocktail",
         loader: requireQueryId,
         element: withSuspense(<Cocktail />),
+      },
+      {
+        path: "result",
+        // loader: requireQueryId,
+        element: withSuspense(<Result />),
       },
       {
         path: "ingredient",

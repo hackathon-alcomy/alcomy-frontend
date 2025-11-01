@@ -14,7 +14,7 @@ export default function SegmentToggle({ mode, onChange }: Props) {
         role="radio"
         aria-checked={mode === "name"}
         onClick={() => onChange("name")}
-        className="rounded-none rounded-t-lg shadow-none px-2 py-2 text-center text-[12px] font-semibold transition-all "
+        className="rounded-none rounded-t-lg shadow-none px-2 py-2 text-center text-[12px] transition-all "
         variant={mode === "name" ? "default" : "secondary"}
       >
         이름으로 검색하기
@@ -23,7 +23,7 @@ export default function SegmentToggle({ mode, onChange }: Props) {
         role="radio"
         aria-checked={mode === "ingredients"}
         onClick={() => onChange("ingredients")}
-        className="rounded-none rounded-t-lg shadow-none px-2 py-2 text-center text-[12px] font-semibold transition-all "
+        className="rounded-none rounded-t-lg shadow-none px-2 py-2 text-center text-[12px] transition-all "
         variant={mode === "ingredients" ? "default" : "secondary"}
       >
         나의 재료로 레시피 검색하기
