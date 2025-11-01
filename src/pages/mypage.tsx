@@ -1,8 +1,10 @@
 import React from "react";
 import FavoriteTile from "../components/FavoriteTile";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export default function MyPage() {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Title + ID */}
@@ -34,7 +36,13 @@ export default function MyPage() {
 
       {/* 기여하기 버튼 */}
       <div className="mt-6 flex justify-center">
-        <Button type="button" className="w-full">
+        <Button
+          type="button"
+          className="w-full"
+          onClick={() => {
+            navigate("/my/contribute");
+          }}
+        >
           기여하기
         </Button>
       </div>
