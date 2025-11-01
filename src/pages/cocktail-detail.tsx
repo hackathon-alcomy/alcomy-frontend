@@ -94,7 +94,7 @@ export default function CocktailDetailPage() {
         <img
           src={details.thumbnail}
           alt={details.name}
-          className="h-[160px] w-[160px] rounded object-cover bg-[#d9d9d9]"
+          className="h-[160px] w-[160px] rounded object-contain bg-[#ffffff]"
         />
         <div className="absolute top-0 right-8 translate-x-full ml-2">
           <StarButton on={isFavorite} onClick={handleFavoriteToggle} />
@@ -136,11 +136,11 @@ export default function CocktailDetailPage() {
         <img
           src={details.gif}
           alt={`${details.name} 제조 과정`}
-          className="h-[120px] w-[120px] flex-none rounded object-cover bg-[#d9d9d9]"
+          className="h-[120px] w-[120px] flex-none rounded object-contain bg-[#d9d9d9]"
         />
         <div className="pl-5 text-md leading-7">
           {details.todo.split("\n").map((step, index) => (
-            <li key={index}>{step}</li>
+            <p key={index}>{step}</p>
           ))}
         </div>
       </div>

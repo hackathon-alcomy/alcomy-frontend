@@ -37,6 +37,7 @@ export default function SearchResultsPage() {
               key={cocktail.id}
               title={cocktail.name}
               id={cocktail.id}
+              thumbnail={cocktail.thumbnail}
             />
           ))}
         </SectionGrid>
@@ -53,6 +54,7 @@ export default function SearchResultsPage() {
               key={cocktail.id}
               title={cocktail.name}
               id={cocktail.id}
+              thumbnail={cocktail.thumbnail}
               subtitle={`+ ${cocktail.missingIngredients}개`}
             />
           ))}
