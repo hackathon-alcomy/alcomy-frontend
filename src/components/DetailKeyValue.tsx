@@ -6,7 +6,7 @@ interface Props {
 }
 export default function DetailKeyValue({ label, value }: Props) {
   return (
-    <div className="text-[13px]">
+    <div className="text-md">
       <span className="font-semibold">{label}</span>
       <span className="ml-1">{value}</span>
     </div>
