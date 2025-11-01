@@ -1,16 +1,69 @@
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Search from "@/components/Search";
-
 import StarButton from "../components/StarButton";
 import ResultCard from "../components/ResultCard";
 
+interface Cocktail {
+  id: number;
+  name: string;
+  thumbnail: string;
+}
+
+interface IngredientDetails {
+  name: string;
+  thumbnail: string;
+  description: string;
+  availableCocktails: Cocktail[];
+}
+
 export default function IngredientDetailPage() {
+  const [searchParams] = useSearchParams();
+  const ingredientName = searchParams.get("name");
+  const [details, setDetails] = useState<IngredientDetails | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!ingredientName) return;
+
+    const fetchDetails = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_API_BASE_URL
+          }/ingredient?name=${ingredientName}`
+        );
+        if (!response.ok) throw new Error("데이터를 불러오는 데 실패했습니다.");
+        const data = await response.json();
+        setDetails(data);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDetails();
+  }, [ingredientName]);
+
+  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div>에러: {error}</div>;
+  if (!details) return <div>재료 정보를 찾을 수 없습니다.</div>;
+
   return (
     <div>
       <Search />
 
       {/* 썸네일 + 즐겨찾기 */}
       <div className="w-full relative mt-6 flex items-start justify-center">
-        <div className="h-[160px] w-[160px] rounded bg-[#d9d9d9]" />
+        <img
+          src={details.thumbnail}
+          alt={details.name}
+          className="h-[160px] w-[160px] rounded object-cover bg-[#d9d9d9]"
+        />
         <div className="absolute top-0 right-8 translate-x-full ml-2">
           <StarButton />
         </div>
@@ -18,10 +71,9 @@ export default function IngredientDetailPage() {
 
       {/* 재료명 + 설명 */}
       <div className="mt-4 text-center">
-        <div className="text-2xl font-extrabold">재료 명</div>
+        <div className="text-2xl font-extrabold">{details.name}</div>
         <p className="mx-auto mt-3 max-w-[300px] text-md leading-[1.65]">
-          재료 설명입니다. 재료 설명입니다. 재료 설명입니다. 재료 설명입니다.
-          재료 설명입니다. 재료 설명입니다.재료 설명입니다.
+          {details.description}
         </p>
       </div>
 
@@ -29,10 +81,13 @@ export default function IngredientDetailPage() {
       <section className="mt-9 w-full px-8">
         <h2 className="mb-3 text-xl font-semibold">만들 수 있어요!</h2>
         <div className="flex gap-4 overflow-x-auto pb-4">
-          <ResultCard title="칵테일 명" id={1} />
-          <ResultCard title="칵테일 명" id={1} />
-          <ResultCard title="칵테일 명" id={1} />
-          <ResultCard title="칵테일 명" id={1} />
+          {details.availableCocktails.map((cocktail) => (
+            <ResultCard
+              key={cocktail.id}
+              title={cocktail.name}
+              id={cocktail.id}
+            />
+          ))}
         </div>
       </section>
     </div>

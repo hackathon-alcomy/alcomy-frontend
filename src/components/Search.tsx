@@ -1,25 +1,14 @@
-import React, { useState } from "react";
-import SegmentToggle, { type Mode } from "../components/SegmentToggle";
+import SegmentToggle from "../components/SegmentToggle";
 import SearchBar from "../components/SearchBar";
 import { Button } from "./ui/button";
+import { useSearchStore } from "@/store/searchStore";
 
 export default function Search() {
-  const [mode, setMode] = useState<Mode>("name");
-  const [selected, setSelected] = useState<string[]>([]);
-
-  // ✅ 선택 토글 함수
-  const toggleSelect = (item: string) => {
-    setSelected(
-      (prev) =>
-        prev.includes(item)
-          ? prev.filter((v) => v !== item) // 이미 있으면 제거
-          : [...prev, item] // 없으면 추가
-    );
-  };
+  const { mode, selected, toggleSelect } = useSearchStore();
 
   return (
     <div className="mt-2 border border-primary border-2 rounded-xl p-1">
-      <SegmentToggle mode={mode} onChange={setMode} />
+      <SegmentToggle />
       <SearchBar placeholder="검색어를 입력하세요" />
 
       {/* ✅ 선택된 재료 버튼 */}

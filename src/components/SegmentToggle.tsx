@@ -1,19 +1,17 @@
 import { Button } from "./ui/button";
+import { useSearchStore } from "@/store/searchStore";
 
-export type Mode = "name" | "ingredients";
-
-interface Props {
-  mode: Mode;
-  onChange: (m: Mode) => void;
-}
-
-export default function SegmentToggle({ mode, onChange }: Props) {
+export default function SegmentToggle() {
+  const { mode, setMode, setSelected } = useSearchStore();
   return (
     <div className="grid grid-cols-2 rounded-t-lg rounded-[14px] bg-background/90">
       <Button
         role="radio"
         aria-checked={mode === "name"}
-        onClick={() => onChange("name")}
+        onClick={() => {
+          setMode("name");
+          setSelected([]);
+        }}
         className="rounded-none rounded-t-lg shadow-none px-2 py-2 text-center text-[12px] transition-all "
         variant={mode === "name" ? "default" : "secondary"}
       >
@@ -22,7 +20,7 @@ export default function SegmentToggle({ mode, onChange }: Props) {
       <Button
         role="radio"
         aria-checked={mode === "ingredients"}
-        onClick={() => onChange("ingredients")}
+        onClick={() => setMode("ingredients")}
         className="rounded-none rounded-t-lg shadow-none px-2 py-2 text-center text-[12px] transition-all "
         variant={mode === "ingredients" ? "default" : "secondary"}
       >

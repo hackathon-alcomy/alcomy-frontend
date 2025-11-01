@@ -27,7 +27,7 @@ export default function TodayMaterials() {
     );
   }
 
-  const Material = data?.Material ?? null;
+  const Material = data ?? null;
 
   return (
     <>

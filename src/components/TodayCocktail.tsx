@@ -10,7 +10,13 @@ export default function TodayCocktail({ item }: { item: Cocktail }) {
       onClick={() => navigate("/cocktail?id=1")}
     >
       {/* 썸네일 이미지 */}
-      <div className="h-[92px] w-[92px] flex-none rounded bg-[#d9d9d9] transition-shadow hover:shadow-md" />
+      <div className="h-[92px] w-[92px] flex-none rounded bg-[#d9d9d9] transition-shadow hover:shadow-md">
+        <img
+          src={item?.thumbnail}
+          alt={item?.name}
+          className="h-[92px] w-[92px] flex-none rounded object-contain bg-[#d9d9d9]"
+        />
+      </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">
           <div className="font-bold">{item.name}</div>
