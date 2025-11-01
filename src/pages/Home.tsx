@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       {/* Segment + Search */}
-      <div className="mt-2">
+      <div className="mt-2 border border-primary border-2 rounded-xl p-1">
         <SegmentToggle mode={mode} onChange={setMode} />
         <SearchBar placeholder="검색어를 입력하세요" />
       </div>

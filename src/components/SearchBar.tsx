@@ -12,7 +12,7 @@ export default function SearchBar({
   onSearchClick,
 }: Props) {
   return (
-    <div className="flex items-between border border-input px-3 py-1 rounded-md shadow-sm">
+    <div className="flex items-between border border-input px-3 py-1 rounded-b-lg shadow-sm">
       <Input
         aria-label="검색"
         type="text"
