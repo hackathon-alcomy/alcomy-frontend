@@ -6,7 +6,12 @@ export default function Header() {
   const navigate = useNavigate();
   return (
     <header className="h-24 flex items-center justify-between">
-      <img src={logo} alt="Alcomy Logo" className="h-8 object-cover" />
+      <img
+        src={logo}
+        alt="Alcomy Logo"
+        className="h-8 object-cover cursor-pointer"
+        onClick={() => navigate("/")}
+      />
       <Button
         variant="ghost"
         className="text-[14px] cursor-pointer"
