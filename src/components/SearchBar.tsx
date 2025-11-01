@@ -31,6 +31,7 @@ export default function SearchBar({ placeholder = "Value" }: Props) {
         }
         const data = await response.json();
         setResults(data.cocktails);
+        setAlmostAvailableResults([]);
       } catch (error) {
         console.error("Failed to fetch cocktails:", error);
         setResults([]); // 에러 발생 시 결과 초기화
