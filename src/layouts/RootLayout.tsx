@@ -12,7 +12,7 @@ export default function RootLayout() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="bg-background w-full min-h-screen mx-auto flex flex-col max-w-[412px] px-4">
+      <div className="bg-background w-full min-h-screen mx-auto flex flex-col max-w-[440px] px-4 shadow-lg">
         <Header />
         <main>
           <Outlet />
