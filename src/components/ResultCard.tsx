@@ -17,11 +17,9 @@ export default function ResultCard({ title, subtitle, id }: Props) {
           navigate(`/cocktail?id=${id}`);
         }}
       />
-      <div className="mt-2 text-[12px] font-medium">{title}</div>
+      <div className="mt-2 text-ls font-medium">{title}</div>
       {subtitle ? (
-        <div className="text-[12px] leading-[1.2] text-[#4b5563]">
-          {subtitle}
-        </div>
+        <div className="text-md leading-[1.2] text-[#4b5563]">{subtitle}</div>
       ) : null}
     </div>
   );
