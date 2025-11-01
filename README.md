@@ -1,73 +1,101 @@
-# React + TypeScript + Vite
+# 🥂 ALCOLMY
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **“Alcohol + Alchemy” — 나만의 조합으로 만드는 칵테일의 연금술.**
+> ALCOLMY는 사용자가 재료, 도수, 취향에 따라 칵테일을 탐색하고
+> 오늘의 추천 칵테일을 확인할 수 있는 웹 서비스입니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 프로젝트 소개
 
-## React Compiler
+ALCOLMY는 **React + Vite + Tailwind CSS** 기반으로 제작된
+**칵테일 탐색 및 추천 플랫폼**입니다.
+사용자는 매일 업데이트되는 칵테일 정보를 확인하고,
+재료 혹은 이름으로 검색하며 자신만의 칵테일 조합을 만들어볼 수 있습니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> 🧪 핵심 목표:
+> 복잡한 레시피 대신 **직관적인 UI/UX**로 칵테일을 쉽게 탐색할 수 있게 하는 것.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🌟 주요 기능
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| 기능             | 설명                                                            |
+| ---------------- | --------------------------------------------------------------- |
+| 🥃 오늘의 칵테일 | `/daily/cocktails` API를 통해 매일 랜덤 추천 칵테일 목록을 표시 |
+| 🔍 검색 기능     | 이름 또는 재료 기준으로 칵테일 검색 가능                        |
+| 🧂 재료 선택     | 여러 재료를 선택해 만들 수 있는 칵테일 추천                     |
+| 💾 로그인        | 간단한 로컬 로그인 (ID 저장)                                    |
+| 💬 마이페이지    | 내가 기여한 칵테일 정보, 즐겨찾기 목록 등 확인 가능             |
+| 🪄 반응형 UI     | 모바일(412px) 최적화 / Tailwind로 빠른 디자인 반영              |
+| 🧠 상태 관리     | Zustand를 통한 전역 상태 관리 (검색 모드, 로그인 정보 등)       |
+| ⚙️ 라우팅        | React Router DOM + Suspense 기반 페이지 로드 최적화             |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧩 기술 스택
+
+| 분야               | 사용 기술                                            |
+| ------------------ | ---------------------------------------------------- |
+| Frontend Framework | **React 18**, **Vite**                               |
+| Styling            | **Tailwind CSS**, shadcn/ui                          |
+| State Management   | **Zustand**                                          |
+| Routing            | **React Router DOM**                                 |
+| API                | RESTful `/daily/cocktails`, `/search`, `/ingredient` |
+| Language           | **TypeScript**                                       |
+| Build & Deploy     | Vite + AWS / GitHub Pages / CloudFront               |
+| UI Components      | shadcn/ui, Lucide Icons                              |
+| Animation          | Framer Motion (optional)                             |
+
+---
+
+## 🗂️ 폴더 구조
+
+```bash
+src/
+├── components/        # 재사용 가능한 UI 컴포넌트
+│   ├── Header.tsx
+│   ├── SearchBar.tsx
+│   ├── TodayCocktail.tsx
+│   └── ui/            # shadcn 기반 버튼, 인풋 등
+│
+├── pages/             # 페이지 단위 컴포넌트
+│   ├── Home.tsx
+│   ├── Search.tsx
+│   ├── cocktail-detail.tsx
+│   ├── ingredients-results.tsx
+│   └── Login.tsx
+│
+├── layouts/           # 레이아웃 (RootLayout 등)
+├── store/             # Zustand 전역 상태 관리
+├── hooks/             # 커스텀 훅
+├── lib/               # API, 유틸 등
+└── main.tsx           # 진입점
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💻 실행 방법
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# 1️⃣ 패키지 설치
+npm install
+
+# 2️⃣ 개발 서버 실행
+npm run dev
+
+# 3️⃣ (선택) 프로덕션 빌드
+npm run build
 ```
+
+서비스는 기본적으로 **[http://localhost:5173/](http://localhost:5173/)** 에서 실행됩니다.
+
+---
+
+## 🔐 환경 변수 설정 (`.env`)
+
+```bash
+VITE_API_BASE_URL=https://api.alcolmy.com
+```
+
+---
