@@ -7,12 +7,14 @@ export default function Home() {
       <Search />
 
       {/* 오늘의 칵테일 */}
-      <h2 className="w-full mt-6 mb-[14px] font-bold text-xl">오늘의 칵테일</h2>
+      <h2 className="w-full mt-6 mb-[14px] font-bold text-2xl">
+        오늘의 칵테일
+      </h2>
       <TodayCocktail />
 
       <hr></hr>
       {/* Fact */}
-      <h2 className="w-full text-right mt-6 mb-[14px] font-bold text-xl">
+      <h2 className="w-full text-right mt-6 mb-[14px] font-bold text-2xl">
         칵테일 깨알 상식
       </h2>
       <TodayMaterial />

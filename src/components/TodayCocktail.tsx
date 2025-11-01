@@ -18,7 +18,7 @@ export default function TodayCocktail() {
         <div className="w-full text-right mt-[2px] text-[11px] text-muted-foreground">
           소주보다 쉬운
         </div>
-        <p className="mt-2 text-[12px] leading-[1.65]">
+        <p className="mt-2 leading-[1.65]">
           칵테일 설명 칵테일 설명칵테일의 설명 칵테일 설명 칵테일 설명칵테일의
           설명 칵테일 설명 칵테일 설명칵테일의 설명 칵테일 설명 칵테일
           설명칵테일의 설명 칵테일
