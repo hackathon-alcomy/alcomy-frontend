@@ -25,28 +25,27 @@ export default function ContributePage() {
       return;
     }
 
-    // 현재는 'ingredient' 타입만 처리합니다.
-    if (type === "ingredient") {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/ingredient`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ title, description }),
-          }
-        );
+    const endpoint = type === "ingredient" ? "ingredient" : "cocktail";
 
-        if (response.ok) {
-          setIsSuccess(true); // 성공 시 다이얼로그 표시
-        } else {
-          throw new Error("제출에 실패했습니다.");
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/${endpoint}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title, description }),
         }
-      } catch (error) {
-        alert("오류가 발생했습니다. 다시 시도해주세요.");
+      );
+
+      if (response.ok) {
+        setIsSuccess(true); // 성공 시 다이얼로그 표시
+      } else {
+        throw new Error("제출에 실패했습니다.");
       }
+    } catch (error) {
+      alert("오류가 발생했습니다. 다시 시도해주세요.");
     }
   };
 
@@ -68,7 +67,7 @@ export default function ContributePage() {
           </Label>
         </div>
         <div className="flex items-center gap-3">
-          <RadioGroupItem value="recipe" id="r2" />
+          <RadioGroupItem value="cocktail" id="r2" />
           <Label className="text-md" htmlFor="r2">
             칵테일 레시피
           </Label>

@@ -15,7 +15,7 @@ export default function Header() {
   }, [location]);
 
   return (
-    <header className="h-24 flex items-center justify-between">
+    <header className="h-12 flex items-center justify-between sticky top-0 z-50 bg-white/80 backdrop-blur-md">
       <img
         src={logo}
         alt="Alcomy Logo"
