@@ -11,10 +11,10 @@ import ErrorPage from "./pages/ErrorPage";
 
 const Home = lazy(() => import("./pages/Home"));
 // const Search = lazy(() => import("./pages/Search"));
-// const Cocktail = lazy(() => import("./pages/Cocktail"));
-// const Ingredient = lazy(() => import("./pages/Ingredient"));
-// const MyHome = lazy(() => import("./pages/MyHome"));
-// const Contribute = lazy(() => import("./pages/Contribute"));
+const Cocktail = lazy(() => import("./pages/cocktail-detail"));
+const Ingredient = lazy(() => import("./pages/ingredients-results"));
+const MyHome = lazy(() => import("./pages/mypage"));
+const Contribute = lazy(() => import("./pages/contribute"));
 
 function withSuspense<T extends ReactElement>(el: T): ReactElement {
   return (
@@ -43,24 +43,24 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: withSuspense(<Home />) },
       // { path: "search", element: withSuspense(<Search />) },
-      // {
-      //   path: "cocktail",
-      //   loader: requireQueryId,
-      //   element: withSuspense(<Cocktail />),
-      // },
-      // {
-      //   path: "ingredient",
-      //   loader: requireQueryId,
-      //   element: withSuspense(<Ingredient />),
-      // },
-      // {
-      //   path: "my",
-      //   element: <MyLayout />,
-      //   children: [
-      //     { index: true, element: withSuspense(<MyHome />) },
-      //     { path: "contribute", element: withSuspense(<Contribute />) },
-      //   ],
-      // },
+      {
+        path: "cocktail",
+        loader: requireQueryId,
+        element: withSuspense(<Cocktail />),
+      },
+      {
+        path: "ingredient",
+        loader: requireQueryId,
+        element: withSuspense(<Ingredient />),
+      },
+      {
+        path: "my",
+        // element: <MyLayout />,
+        children: [
+          { index: true, element: withSuspense(<MyHome />) },
+          { path: "contribute", element: withSuspense(<Contribute />) },
+        ],
+      },
     ],
   },
 ]);
