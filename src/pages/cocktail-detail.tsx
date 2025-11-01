@@ -4,6 +4,8 @@ import Search from "@/components/Search";
 import StarButton from "../components/StarButton";
 import DetailKeyValue from "../components/DetailKeyValue";
 import IngredientButton from "../components/IngredientButton";
+import amarettoGif from "@/assets/amaretto.gif";
+import rainbowGif from "@/assets/rainbow.gif";
 
 interface CocktailDetails {
   name: string;
@@ -134,7 +136,7 @@ export default function CocktailDetailPage() {
       {/* 레시피 섹션 */}
       <div className="w-full px-8 mt-6 flex gap-4">
         <img
-          src={details.gif}
+          src={details.name === "Rainbow" ? rainbowGif : amarettoGif}
           alt={`${details.name} 제조 과정`}
           className="h-[120px] w-[120px] flex-none rounded object-contain bg-[#d9d9d9]"
         />
