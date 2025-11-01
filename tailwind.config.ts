@@ -17,13 +17,8 @@ export default {
       },
     },
     extend: {
-      colors: {
-        // primary: "#A27661",
-        // secondary: "#C4AA9E",
-        // // brand: {
-        // //   primary: "#A27661",
-        // //   secondary: "#C4AA9E",
-        // // },
+      fontFamily: {
+        sans: ["Pretendard", "ui-sans-serif", "system-ui"],
       },
       borderRadius: {
         lg: "var(--radius)",
