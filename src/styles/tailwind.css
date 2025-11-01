@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 선택: 시스템 폰트 스택 */
+:root {
+  color-scheme: light;
+}
