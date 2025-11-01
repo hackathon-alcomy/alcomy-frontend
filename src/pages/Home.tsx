@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import SegmentToggle, { type Mode } from "./SegmentToggle";
-import SearchBar from "./SearchBar";
+import SegmentToggle, { type Mode } from "../components/SegmentToggle";
+import SearchBar from "../components/SearchBar";
 
-export default function ALCOMYMobile() {
+export default function Home() {
   const [mode, setMode] = useState<Mode>("name");
 
   return (
