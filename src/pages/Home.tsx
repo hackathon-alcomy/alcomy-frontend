@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import SegmentToggle, { type Mode } from "../components/SegmentToggle";
 import SearchBar from "../components/SearchBar";
-
+import TodayCocktail from "@/components/TodayCocktail";
+import TodayMaterial from "@/components/TodayMaterial";
 export default function Home() {
   const [mode, setMode] = useState<Mode>("name");
 
@@ -14,60 +15,15 @@ export default function Home() {
       </div>
 
       {/* 오늘의 칵테일 */}
-      <h2 className="mt-6 mb-[14px] text-[18px]">오늘의 칵테일</h2>
+      <h2 className="w-full mt-6 mb-[14px] font-bold text-xl">오늘의 칵테일</h2>
+      <TodayCocktail />
 
-      {/* List 1 */}
-      <article className="mb-[18px] flex gap-[14px]">
-        <div className="h-[92px] w-[92px] flex-none rounded bg-[#d9d9d9]" />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-start justify-between gap-2">
-            <div className="font-bold text-red-50">칵테일 명</div>
-            <div className="text-[12px]">도수%</div>
-          </div>
-          <div className="mt-[2px] text-[11px] text-[#6b7280]">
-            소주보다 쉬운
-          </div>
-          <p className="mt-2 text-[12px] leading-[1.65]">
-            칵테일 설명 칵테일 설명칵테일의 설명 칵테일 설명 칵테일 설명칵테일의
-            설명 칵테일 설명 칵테일 설명칵테일의 설명 칵테일 설명 칵테일
-            설명칵테일의 설명 칵테일
-          </p>
-        </div>
-      </article>
-
-      {/* List 2 */}
-      <article className="mb-[26px] flex gap-[14px]">
-        <div className="h-[92px] w-[92px] flex-none rounded bg-[#d9d9d9]" />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-start justify-between gap-2">
-            <div className="font-bold">칵테일 명</div>
-            <div className="text-[12px]">도수%</div>
-          </div>
-          <div className="mt-[2px] text-[11px] text-[#6b7280]">
-            소주보다 쉬운
-          </div>
-          <p className="mt-2 text-[12px] leading-[1.65]">
-            칵테일 설명 칵테일 설명 칵테일의 설명 칵테일 설명 칵테일
-            설명칵테일의 설명 칵테일 설명 칵테일 설명칵테일의 설명 칵테일 설명
-            칵테일 설명칵테일의 설명 칵테일
-          </p>
-        </div>
-      </article>
-
+      <hr></hr>
       {/* Fact */}
-      <h2 className="mb-[6px] text-center text-[18px]">칵테일 깨알 상식</h2>
-
-      <article className="flex gap-[14px]">
-        <div className="h-[92px] w-[92px] flex-none rounded bg-[#d9d9d9]" />
-        <div className="min-w-0 flex-1">
-          <div className="font-bold">럼</div>
-          <p className="mt-2 text-[12px] leading-[1.65] text-[#16892d]">
-            설명이 들어옵니다. 설명이 들어옵니다. 설명이 들어옵니다. 설명이
-            들어옵니다. 설명이 들어옵니다. 설명이 들어옵니다. 설명이 들어옵니다.
-            설명이 들어옵니다. 피
-          </p>
-        </div>
-      </article>
+      <h2 className="w-full text-right mt-6 mb-[14px] font-bold text-xl">
+        칵테일 깨알 상식
+      </h2>
+      <TodayMaterial />
     </div>
   );
 }
