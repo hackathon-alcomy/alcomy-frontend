@@ -14,13 +14,11 @@ export default function ResultCard({ title, subtitle, id }: Props) {
       className={`w-[96px] ${
         id !== undefined ? "cursor-pointer" : "cursor-not-allowed"
       }`}
+      onClick={() => {
+        if (id !== undefined) navigate(`/cocktail?id=${id}`);
+      }}
     >
-      <div
-        className="h-[96px] w-[96px] rounded hover:shadow-md"
-        onClick={() => {
-          if (id !== undefined) navigate(`/cocktail?id=${id}`);
-        }}
-      >
+      <div className="h-[96px] w-[96px] rounded hover:shadow-md">
         <img
           src="src\assets\step_4_20251101180400687698.gif"
           alt="칵테일 흔들리는 이미지"
