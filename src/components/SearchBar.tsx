@@ -78,11 +78,14 @@ export default function SearchBar({ placeholder = "Value" }: Props) {
       <Input
         aria-label="검색"
         type="text"
-        placeholder={placeholder}
+        placeholder={
+          mode === "ingredients" ? "재료를 선택해주세요." : placeholder
+        }
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         variant="ghost"
+        disabled={mode === "ingredients"}
         className="shadow-none border-none focus-visible:ring-none"
       />
       <Button
