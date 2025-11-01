@@ -1,24 +1,14 @@
-import React, { useState } from "react";
-
 interface Props {
-  defaultOn?: boolean;
-  onToggle?: (on: boolean) => void;
+  on: boolean;
+  onClick: () => void;
 }
 
-export default function StarButton({ defaultOn = false, onToggle }: Props) {
-  const [on, setOn] = useState(defaultOn);
-  const toggle = () => {
-    setOn((v) => {
-      onToggle?.(!v);
-      return !v;
-    });
-  };
-
+export default function StarButton({ on, onClick }: Props) {
   return (
     <button
       type="button"
       aria-label={on ? "즐겨찾기 해제" : "즐겨찾기"}
-      onClick={toggle}
+      onClick={onClick}
       className="text-[#222] hover:opacity-75"
     >
       {/* 비어있는 별 / 채워진 별 */}
