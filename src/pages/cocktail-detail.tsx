@@ -104,11 +104,11 @@ export default function CocktailDetailPage() {
           alt={`${details.name} 제조 과정`}
           className="h-[120px] w-[120px] flex-none rounded object-cover bg-[#d9d9d9]"
         />
-        <ol className="list-decimal pl-5 text-md leading-7">
+        <div className="pl-5 text-md leading-7">
           {details.todo.split("\n").map((step, index) => (
             <li key={index}>{step}</li>
           ))}
-        </ol>
+        </div>
       </div>
     </div>
   );
