@@ -8,7 +8,7 @@ export default function IngredientButton({ value }: { value: string }) {
     <Button
       variant="secondary"
       className="p-2"
-      onClick={() => navigate("/ingredient?id=1")}
+      onClick={() => navigate(`/ingredient?name=${value}`)}
     >
       {value}
     </Button>

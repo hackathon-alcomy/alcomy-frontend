@@ -15,6 +15,7 @@ interface CocktailDetails {
   gif: string;
   todo: string;
   content: number; // 도수
+  isFavorite: boolean;
 }
 
 export default function CocktailDetailPage() {
@@ -23,6 +24,7 @@ export default function CocktailDetailPage() {
   const [details, setDetails] = useState<CocktailDetails | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     if (!cocktailId) return;
@@ -37,6 +39,7 @@ export default function CocktailDetailPage() {
         if (!response.ok) throw new Error("데이터를 불러오는 데 실패했습니다.");
         const data = await response.json();
         setDetails(data);
+        setIsFavorite(data.isFavorite);
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -46,6 +49,37 @@ export default function CocktailDetailPage() {
 
     fetchDetails();
   }, [cocktailId]);
+
+  const handleFavoriteToggle = async () => {
+    const memberId = localStorage.getItem("userId");
+    if (!memberId) {
+      alert("로그인이 필요한 기능입니다.");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/member/${memberId}/cocktails/${cocktailId}`,
+        {
+          method: "POST",
+        }
+      );
+
+      if (response.status === 201) {
+        // 201 Created: 즐겨찾기 추가 성공
+        setIsFavorite(true);
+      } else if (response.status === 204) {
+        // 204 No Content: 즐겨찾기 삭제 성공
+        setIsFavorite(false);
+      } else {
+        throw new Error("요청에 실패했습니다.");
+      }
+    } catch (err) {
+      alert("오류가 발생했습니다. 다시 시도해주세요.");
+    }
+  };
 
   if (loading) return <div>로딩 중...</div>;
   if (error) return <div>에러: {error}</div>;
@@ -63,7 +97,7 @@ export default function CocktailDetailPage() {
           className="h-[160px] w-[160px] rounded object-cover bg-[#d9d9d9]"
         />
         <div className="absolute top-0 right-8 translate-x-full ml-2">
-          <StarButton />
+          <StarButton on={isFavorite} onClick={handleFavoriteToggle} />
         </div>
       </div>
 
@@ -104,11 +138,11 @@ export default function CocktailDetailPage() {
           alt={`${details.name} 제조 과정`}
           className="h-[120px] w-[120px] flex-none rounded object-cover bg-[#d9d9d9]"
         />
-        <ol className="list-decimal pl-5 text-md leading-7">
+        <div className="pl-5 text-md leading-7">
           {details.todo.split("\n").map((step, index) => (
             <li key={index}>{step}</li>
           ))}
-        </ol>
+        </div>
       </div>
     </div>
   );
