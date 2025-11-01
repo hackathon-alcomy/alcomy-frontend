@@ -21,7 +21,9 @@ export default function Login() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/${mode ? "member" : "auth"}`,
+        `${import.meta.env.VITE_API_BASE_URL}/${
+          mode === "signup" ? "member" : "auth"
+        }`,
         {
           method: "POST",
           headers: {
