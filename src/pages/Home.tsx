@@ -1,6 +1,7 @@
 import Search from "@/components/Search";
-import TodayCocktail from "@/components/TodayCocktail";
-import TodayMaterial from "@/components/TodayMaterial";
+import TodayCocktails from "@/components/TodayCocktails";
+import TodayMaterials from "@/components/TodayMaterials";
+
 export default function Home() {
   return (
     <div>
@@ -10,14 +11,15 @@ export default function Home() {
       <h2 className="w-full mt-6 mb-[14px] font-bold text-2xl">
         오늘의 칵테일
       </h2>
-      <TodayCocktail />
+      <TodayCocktails />
 
       <hr></hr>
+
       {/* Fact */}
       <h2 className="w-full text-right mt-6 mb-[14px] font-bold text-2xl">
         칵테일 깨알 상식
       </h2>
-      <TodayMaterial />
+      <TodayMaterials />
     </div>
   );
 }
