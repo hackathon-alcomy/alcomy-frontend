@@ -136,7 +136,7 @@ export default function CocktailDetailPage() {
       {/* 레시피 섹션 */}
       <div className="w-full px-8 mt-6 flex gap-4">
         <img
-          src={details.name === "Rainbow" ? rainbowGif : amarettoGif}
+          src={details.name === "레인보우 샷" ? rainbowGif : amarettoGif}
           alt={`${details.name} 제조 과정`}
           className="h-[120px] w-[120px] flex-none rounded object-contain bg-[#d9d9d9]"
         />
