@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ResultCard from "@/components/ResultCard";
 import SectionGrid from "../components/SectionGrid";
 
