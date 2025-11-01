@@ -16,10 +16,6 @@ export default function SegmentToggle({ mode, onChange }: Props) {
         aria-checked={mode === "name"}
         onClick={() => onChange("name")}
         className="rounded-[10px] px-2 py-2 text-center text-[12px] font-semibold transition-all "
-        // (mode === "name"
-        //   ? "bg-[#8e7364] text-white shadow-[0_1px_0_rgba(0,0,0,.05),0_6px_14px_rgba(142,115,100,.25)]"
-        //   : "text-[#6b5b52]")
-        // }
         variant={mode === "name" ? "default" : "secondary"}
       >
         이름으로 검색하기

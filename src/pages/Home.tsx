@@ -10,7 +10,7 @@ export default function Home() {
       {/* Segment + Search */}
       <div className="mt-2">
         <SegmentToggle mode={mode} onChange={setMode} />
-        <SearchBar placeholder="Value" />
+        <SearchBar placeholder="검색어를 입력하세요" />
       </div>
 
       {/* 오늘의 칵테일 */}
