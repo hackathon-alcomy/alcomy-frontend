@@ -5,9 +5,10 @@ interface Props {
   title: string; // "칵테일 명"
   subtitle?: string; // "+ 추가 재료 n개" 등
   id?: number;
+  thumbnail?: string;
 }
 
-export default function ResultCard({ title, subtitle, id }: Props) {
+export default function ResultCard({ title, subtitle, id, thumbnail }: Props) {
   const navigate = useNavigate();
   return (
     <div
@@ -22,8 +23,8 @@ export default function ResultCard({ title, subtitle, id }: Props) {
     >
       <div className="h-[96px] w-[96px] rounded hover:shadow-md">
         <img
-          src="src\assets\step_4_20251101180400687698.gif"
-          alt="칵테일 흔들리는 이미지"
+          src={thumbnail}
+          alt={title}
           className="h-[96px] w-[96px] rounded object-contain"
         />
       </div>
