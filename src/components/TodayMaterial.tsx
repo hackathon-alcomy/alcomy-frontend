@@ -12,7 +12,7 @@ export default function TodayMaterial({ item }: { item: Material | null }) {
       </div>
       <div className="min-w-0 flex-1">
         <div className="font-bold">{item?.name}</div>
-        <p className="mt-2  leading-[1.65]">{item?.description}</p>
+        <p className="mt-2 leading-[1.65]">{item?.description}</p>
       </div>
     </article>
   );
