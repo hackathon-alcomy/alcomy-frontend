@@ -9,7 +9,7 @@ export default function StarButton({ on, onClick }: Props) {
       type="button"
       aria-label={on ? "즐겨찾기 해제" : "즐겨찾기"}
       onClick={onClick}
-      className="text-[#222] hover:opacity-75"
+      className="text-[#222] hover:opacity-75 transition-transform hover:scale-[1.02]"
     >
       {/* 비어있는 별 / 채워진 별 */}
       {on ? (

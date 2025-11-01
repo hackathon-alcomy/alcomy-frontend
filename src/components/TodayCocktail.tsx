@@ -18,7 +18,7 @@ export default function TodayCocktail({ item }: { item: Cocktail }) {
 
   return (
     <article
-      className="mb-[18px] flex gap-[14px] cursor-pointer"
+      className="mb-[18px] flex gap-[14px] cursor-pointer transition-transform hover:scale-[1.02]"
       onClick={() => navigate(`/cocktail?id=${item.id}`)}
     >
       {/* 썸네일 이미지 */}

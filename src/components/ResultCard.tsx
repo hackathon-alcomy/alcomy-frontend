@@ -12,7 +12,9 @@ export default function ResultCard({ title, subtitle, id }: Props) {
   return (
     <div
       className={`w-[96px] ${
-        id !== undefined ? "cursor-pointer" : "cursor-not-allowed"
+        id !== undefined
+          ? "cursor-pointer transition-transform hover:scale-[1.02]"
+          : "cursor-not-allowed"
       }`}
       onClick={() => {
         if (id !== undefined) navigate(`/cocktail?id=${id}`);
